@@ -28,12 +28,9 @@ if __name__ == '__main__':
             chunk = chunk.fillna('')
 
             sparse_matrix = word_vectorizer.fit_transform(chunk['Keyword'])
-            print(sparse_matrix)
             train_data_features = sparse_matrix.toarray()
-            print(train_data_features)
             #vocab = word_vectorizer.get_feature_names()
             vocab = word_vectorizer.get_feature_names_out()
-            print(vocab)
             dist = np.sum(train_data_features, axis=0)
 
             list_of_tuples = list(zip(vocab, dist))
